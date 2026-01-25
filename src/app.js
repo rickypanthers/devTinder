@@ -2,15 +2,15 @@ const express = require('express');
 
 const app = express();
 
-app.use('/', (req, res) => {
-  res.send('Namaste from the suman!');
-});
-app.use('/hello', (req, res) => {
-  res.send('Hello hello hello!!');
+app.get('/user', (req, res) => {
+  res.send({
+    firstName: 'Suman',
+    lastName: 'Ghosh',
+  });
 });
 
-app.use((req, res) => {
-  res.send('Hello from the server');
+app.post('/user', (req, res) => {
+  res.send('Data saved successfully to the database');
 });
 
 app.listen(3000, () => {
